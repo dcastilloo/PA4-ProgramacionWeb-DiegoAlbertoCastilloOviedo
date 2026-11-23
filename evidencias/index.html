@@ -1,0 +1,1223 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Evidencias de pruebas PA4</title><style>body{font:16px Arial,sans-serif;color:#14232e;margin:32px;background:white}h1{font-size:27px;margin:0 0 10px}h2{font-size:21px;margin-top:26px}p{line-height:1.45}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccd4da;padding:9px;text-align:left}th{background:#e9eef1}pre{white-space:pre-wrap;word-break:break-word;font:14px Consolas,monospace;line-height:1.35;background:#f4f6f7;padding:14px;margin:0}.cols{display:grid;grid-template-columns:1fr 1.1fr;gap:18px}article{margin:20px 0 28px;break-inside:avoid}small{color:#47535e}code{font-family:Consolas,monospace}.ok{color:#185f37;font-weight:bold}</style><h1>Evidencias de pruebas PA4</h1><p>Ejecutado: 2026-11-22T23:17:27 · Base de pruebas independiente · PHP y SQL Server reales</p><table><tr><th>Validación</th><th>Ejecutadas</th><th>Fallos</th></tr><tr><td>Batería HTTP e invariantes SQL</td><td>144</td><td>0</td></tr><tr><td>Solicitudes de colección Postman con Newman</td><td>38</td><td>0</td></tr><tr><td>Aserciones Newman</td><td>78</td><td>0</td></tr></table><p>Seis módulos y 30 combinaciones de método y ruta. Evidencia generada desde resultados.json y newman.json, sin reemplazar respuestas.</p><h2>Registro completo</h2><table><tr><th>Caso</th><th>Método y ruta</th><th>Resultado</th></tr><tr><td>pacientes: listar</td><td>GET /api/pacientes</td><td>200</td></tr><tr><td>pacientes: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pacientes: consultar ID</td><td>GET /api/pacientes/1</td><td>200</td></tr><tr><td>pacientes: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pacientes: ID inexistente</td><td>GET /api/pacientes/2147483647</td><td>404</td></tr><tr><td>servicios: listar</td><td>GET /api/servicios</td><td>200</td></tr><tr><td>servicios: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>servicios: consultar ID</td><td>GET /api/servicios/1</td><td>200</td></tr><tr><td>servicios: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>servicios: ID inexistente</td><td>GET /api/servicios/2147483647</td><td>404</td></tr><tr><td>agenda: listar</td><td>GET /api/agenda</td><td>200</td></tr><tr><td>agenda: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>agenda: consultar ID</td><td>GET /api/agenda/1</td><td>200</td></tr><tr><td>agenda: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>agenda: ID inexistente</td><td>GET /api/agenda/2147483647</td><td>404</td></tr><tr><td>medios-pago: listar</td><td>GET /api/medios-pago</td><td>200</td></tr><tr><td>medios-pago: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>medios-pago: consultar ID</td><td>GET /api/medios-pago/1</td><td>200</td></tr><tr><td>medios-pago: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>medios-pago: ID inexistente</td><td>GET /api/medios-pago/2147483647</td><td>404</td></tr><tr><td>reservas: listar</td><td>GET /api/reservas</td><td>200</td></tr><tr><td>reservas: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>reservas: consultar ID</td><td>GET /api/reservas/1</td><td>200</td></tr><tr><td>reservas: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>reservas: ID inexistente</td><td>GET /api/reservas/2147483647</td><td>404</td></tr><tr><td>pagos: listar</td><td>GET /api/pagos</td><td>200</td></tr><tr><td>pagos: lista JSON</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: consultar ID</td><td>GET /api/pagos/1</td><td>200</td></tr><tr><td>pagos: corresponde el ID</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: ID inexistente</td><td>GET /api/pagos/2147483647</td><td>404</td></tr><tr><td>pacientes: crear</td><td>POST /api/pacientes</td><td>201</td></tr><tr><td>pacientes: actualizar</td><td>PUT /api/pacientes/13</td><td>200</td></tr><tr><td>pacientes: cambios persistidos</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pacientes: correo duplicado</td><td>POST /api/pacientes</td><td>409</td></tr><tr><td>pacientes: correo inválido</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>pacientes: nombre largo</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>pacientes: longitud Unicode SQL</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>pacientes: falta obligatorio</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>pacientes: tipo booleano</td><td>PUT /api/pacientes/13</td><td>400</td></tr><tr><td>pacientes: identidad no editable</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>pacientes: PUT inexistente</td><td>PUT /api/pacientes/2147483647</td><td>404</td></tr><tr><td>pacientes: DELETE inexistente</td><td>DELETE /api/pacientes/2147483647</td><td>404</td></tr><tr><td>servicios: crear</td><td>POST /api/servicios</td><td>201</td></tr><tr><td>servicios: actualizar</td><td>PUT /api/servicios/12</td><td>200</td></tr><tr><td>servicios: cambios persistidos</td><td>SQL/estado </td><td>OK</td></tr><tr><td>servicios: nombre duplicado</td><td>POST /api/servicios</td><td>409</td></tr><tr><td>servicios: descripción vacía</td><td>POST /api/servicios</td><td>400</td></tr><tr><td>medios-pago: crear</td><td>POST /api/medios-pago</td><td>201</td></tr><tr><td>medios-pago: actualizar</td><td>PUT /api/medios-pago/8</td><td>200</td></tr><tr><td>medios-pago: duplicado</td><td>POST /api/medios-pago</td><td>409</td></tr><tr><td>agenda: crear</td><td>POST /api/agenda</td><td>201</td></tr><tr><td>agenda: actualizar</td><td>PUT /api/agenda/19</td><td>200</td></tr><tr><td>agenda: inicio duplicado</td><td>POST /api/agenda</td><td>409</td></tr><tr><td>agenda: fecha pasada</td><td>POST /api/agenda</td><td>409</td></tr><tr><td>agenda: fecha inexistente</td><td>POST /api/agenda</td><td>400</td></tr><tr><td>agenda: año fuera de SQL Server</td><td>POST /api/agenda</td><td>400</td></tr><tr><td>agenda: Fin fuera del rango SQL</td><td>POST /api/agenda</td><td>400</td></tr><tr><td>agenda: minuto no exacto</td><td>POST /api/agenda</td><td>400</td></tr><tr><td>agenda: Fin calculado</td><td>POST /api/agenda</td><td>400</td></tr><tr><td>agenda: bloque alternativo</td><td>POST /api/agenda</td><td>201</td></tr><tr><td>reservas: crear</td><td>POST /api/reservas</td><td>201</td></tr><tr><td>reservas: doble reserva</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>reservas: paciente inexistente</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>reservas: servicio inexistente</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>reservas: agenda inexistente</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>reservas: importe negativo</td><td>POST /api/reservas</td><td>400</td></tr><tr><td>reservas: importe numérico no contractual</td><td>POST /api/reservas</td><td>400</td></tr><tr><td>reservas: identidad como texto</td><td>POST /api/reservas</td><td>400</td></tr><tr><td>reservas: Estado no editable</td><td>PUT /api/reservas/10</td><td>400</td></tr><tr><td>agenda: no mover ocupada</td><td>PUT /api/agenda/19</td><td>409</td></tr><tr><td>agenda: no deshabilitar ocupada</td><td>DELETE /api/agenda/19</td><td>409</td></tr><tr><td>pacientes: no desactivar con reserva</td><td>DELETE /api/pacientes/13</td><td>409</td></tr><tr><td>pacientes: PUT no omite restricción de baja</td><td>PUT /api/pacientes/13</td><td>409</td></tr><tr><td>servicios: no desactivar con reserva</td><td>DELETE /api/servicios/12</td><td>409</td></tr><tr><td>reservas: actualizar y reprogramar</td><td>PUT /api/reservas/10</td><td>200</td></tr><tr><td>reservas: verificar agenda</td><td>GET /api/reservas/10</td><td>200</td></tr><tr><td>reservas: reprogramación persistida</td><td>SQL/estado </td><td>OK</td></tr><tr><td>agenda: DELETE bloque liberado</td><td>DELETE /api/agenda/19</td><td>200</td></tr><tr><td>agenda: repetir DELETE</td><td>DELETE /api/agenda/19</td><td>409</td></tr><tr><td>reservas: agenda deshabilitada</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>pagos: importe distinto</td><td>POST /api/pagos</td><td>409</td></tr><tr><td>reservas: tras pago inválido</td><td>GET /api/reservas/10</td><td>200</td></tr><tr><td>pagos: fallo no confirma reserva</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: crear</td><td>POST /api/pagos</td><td>201</td></tr><tr><td>reservas: tras pago correcto</td><td>GET /api/reservas/10</td><td>200</td></tr><tr><td>pagos: confirma reserva</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: segundo pago vigente</td><td>POST /api/pagos</td><td>409</td></tr><tr><td>reservas: no editar confirmada</td><td>PUT /api/reservas/10</td><td>409</td></tr><tr><td>reservas: no cancelar pagada</td><td>DELETE /api/reservas/10</td><td>409</td></tr><tr><td>medios-pago: no desactivar con pago</td><td>DELETE /api/medios-pago/8</td><td>409</td></tr><tr><td>pagos: no alterar importe</td><td>PUT /api/pagos/10</td><td>400</td></tr><tr><td>pagos: actualizar referencia y medio</td><td>PUT /api/pagos/10</td><td>200</td></tr><tr><td>pagos: referencia corregida</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: medio inexistente</td><td>PUT /api/pagos/10</td><td>409</td></tr><tr><td>pagos: DELETE anula y conserva</td><td>DELETE /api/pagos/10</td><td>200</td></tr><tr><td>pagos: anulación con fecha</td><td>SQL/estado </td><td>OK</td></tr><tr><td>reservas: tras anulación</td><td>GET /api/reservas/10</td><td>200</td></tr><tr><td>pagos: reserva vuelve a pendiente</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: repetir DELETE</td><td>DELETE /api/pagos/10</td><td>409</td></tr><tr><td>pagos: no editar anulado</td><td>PUT /api/pagos/10</td><td>409</td></tr><tr><td>pagos: referencia histórica única</td><td>POST /api/pagos</td><td>409</td></tr><tr><td>reservas: tras referencia duplicada</td><td>GET /api/reservas/10</td><td>200</td></tr><tr><td>pagos: duplicado no confirma reserva</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pagos: registrar reemplazo tras anulación</td><td>POST /api/pagos</td><td>201</td></tr><tr><td>pagos: anular reemplazo</td><td>DELETE /api/pagos/12</td><td>200</td></tr><tr><td>reservas: DELETE cancela pendiente</td><td>DELETE /api/reservas/10</td><td>200</td></tr><tr><td>reservas: repetir DELETE</td><td>DELETE /api/reservas/10</td><td>409</td></tr><tr><td>reservas: no editar cancelada</td><td>PUT /api/reservas/10</td><td>409</td></tr><tr><td>pacientes: DELETE baja lógica</td><td>DELETE /api/pacientes/13</td><td>200</td></tr><tr><td>pacientes: consultar baja</td><td>GET /api/pacientes/13</td><td>200</td></tr><tr><td>pacientes: historial visible tras baja</td><td>SQL/estado </td><td>OK</td></tr><tr><td>pacientes: repetir DELETE</td><td>DELETE /api/pacientes/13</td><td>409</td></tr><tr><td>reservas: paciente inactivo</td><td>POST /api/reservas</td><td>409</td></tr><tr><td>servicios: DELETE baja lógica</td><td>DELETE /api/servicios/12</td><td>200</td></tr><tr><td>medios-pago: DELETE baja lógica</td><td>DELETE /api/medios-pago/8</td><td>200</td></tr><tr><td>agenda: DELETE después de cancelación</td><td>DELETE /api/agenda/21</td><td>200</td></tr><tr><td>ID inválido 0</td><td>GET /api/pacientes/0</td><td>400</td></tr><tr><td>ID inválido -1</td><td>GET /api/pacientes/-1</td><td>400</td></tr><tr><td>ID inválido abc</td><td>GET /api/pacientes/abc</td><td>400</td></tr><tr><td>ID inválido 2147483648</td><td>GET /api/pacientes/2147483648</td><td>400</td></tr><tr><td>ID inválido 1%27%20OR%201=1</td><td>GET /api/pacientes/1%27%20OR%201=1</td><td>400</td></tr><tr><td>JSON roto</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>JSON array</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>JSON null</td><td>POST /api/pacientes</td><td>400</td></tr><tr><td>Tipo de contenido incorrecto</td><td>POST /api/pacientes</td><td>415</td></tr><tr><td>Tamaño excesivo</td><td>POST /api/pacientes</td><td>413</td></tr><tr><td>Método no permitido</td><td>PATCH /api/pacientes/1</td><td>405</td></tr><tr><td>Ruta inexistente</td><td>GET /api/no-existe</td><td>404</td></tr><tr><td>Entorno no expuesto</td><td>GET /.env</td><td>404</td></tr><tr><td>Código no expuesto</td><td>GET /config/Database.php</td><td>404</td></tr><tr><td>Texto SQL se trata como dato</td><td>POST /api/pacientes</td><td>201</td></tr><tr><td>Texto SQL conservado sin ejecutar</td><td>SQL/estado </td><td>OK</td></tr><tr><td>Eliminar paciente de prueba de inyección</td><td>DELETE /api/pacientes/15</td><td>200</td></tr><tr><td>Concurrencia: preparar agenda</td><td>POST /api/agenda</td><td>201</td></tr><tr><td>Concurrencia: exactamente un 201 y un 409</td><td>SQL/estado </td><td>OK</td></tr><tr><td>Concurrencia: solicitudes y respuestas</td><td>SQL/estado </td><td>OK</td></tr><tr><td>Concurrencia: cancelar reserva temporal</td><td>DELETE /api/reservas/11</td><td>200</td></tr><tr><td>Concurrencia: deshabilitar bloque temporal</td><td>DELETE /api/agenda/22</td><td>200</td></tr><tr><td>SQL: sin doble reserva vigente</td><td>SQL/estado </td><td>OK</td></tr><tr><td>SQL: confirmaciones consistentes con pago vigente</td><td>SQL/estado </td><td>OK</td></tr><tr><td>SQL: seis tablas conservadas</td><td>SQL/estado </td><td>OK</td></tr><tr><td>DBCC CHECKCONSTRAINTS sin errores</td><td>SQL/estado </td><td>OK</td></tr><tr><td>Error interno: conexión inválida devuelve JSON 500</td><td>GET /api/pacientes</td><td>500</td></tr><tr><td>Error interno: no revela base, driver ni credenciales</td><td>SQL/estado </td><td>OK</td></tr></table><article><h2>pacientes: listar</h2><p><code>GET /api/pacientes</code> · HTTP 200 · 78.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;PacienteID&quot;: 1,
+      &quot;NombreCompleto&quot;: &quot;Ana Torres Ejemplo&quot;,
+      &quot;Correo&quot;: &quot;ana.torres@example.com&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;PacienteID&quot;: 2,
+      &quot;NombreCompleto&quot;: &quot;Luis Ramos Ejemplo&quot;,
+      &quot;Correo&quot;: &quot;luis.ramos@example.com&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;PacienteID&quot;: 3,
+      &quot;NombreCompleto&quot;: &quot;Maria Vega Ejemplo&quot;,
+      &quot;Correo&quot;: &quot;maria.vega@example.com&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;PacienteID&quot;: 4,
+      &quot;NombreCompleto&quot;: &quot;Pedro Leon Ejemplo&quot;,
+      &quot;Correo&quot;: &quot;pedro.leon@example.com&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;PacienteID&quot;: 5,
+      &quot;NombreCompleto&quot;: &quot;Lucia Rios Ejemplo&quot;,
+      &quot;Correo&quot;: &quot;lucia.rios@example.com&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;PacienteID&quot;: 6,
+      &quot;NombreCompleto&quot;: &quot;Paciente Editado b6cbc3bf19&quot;,
+      &quot;Correo&quot;: &quot;b6cbc3bf19@example.com&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;PacienteID&quot;: 8,
+      &quot;NombreCompleto&quot;: &quot;SQL de prueba &#x27;; DROP TABLE Paciente;--&quot;,
+      &quot;Correo&quot;: &quot;injb6cbc3bf19@example.com&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;PacienteID&quot;: 9,
+      &quot;NombreCompleto&quot;: &quot;Paciente editado mwsqy7t3poll&quot;,
+      &quot;Correo&quot;: &quot;mwsqy7t3poll@example.com&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;PacienteID&quot;: 10,
+      &quot;NombreCompleto&quot;: &quot;Paciente Editado 060e454c9c&quot;,
+      &quot;Correo&quot;: &quot;060e454c9c@example.com&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;PacienteID&quot;: 12,
+      &quot;NombreCompleto&quot;: &quot;SQL de prueba &#x27;; DROP TABLE Paciente;--&quot;,
+      &quot;Correo&quot;: &quot;inj060e454c9c@example.com&quot;,
+      &quot;Activo&quot;: 0
+    }
+  ]
+}</pre></div></div></article><article><h2>pacientes: consultar ID</h2><p><code>GET /api/pacientes/1</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 1,
+    &quot;NombreCompleto&quot;: &quot;Ana Torres Ejemplo&quot;,
+    &quot;Correo&quot;: &quot;ana.torres@example.com&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>pacientes: ID inexistente</h2><p><code>GET /api/pacientes/2147483647</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>servicios: listar</h2><p><code>GET /api/servicios</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;ServicioID&quot;: 1,
+      &quot;Nombre&quot;: &quot;Estética dental&quot;,
+      &quot;Descripcion&quot;: &quot;Procedimientos orientados a mejorar la apariencia de la sonrisa.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 2,
+      &quot;Nombre&quot;: &quot;Ortodoncia&quot;,
+      &quot;Descripcion&quot;: &quot;Corrección progresiva de la posición dental y la mordida.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 3,
+      &quot;Nombre&quot;: &quot;Endodoncia&quot;,
+      &quot;Descripcion&quot;: &quot;Tratamiento para conservar dientes con daño interno.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 4,
+      &quot;Nombre&quot;: &quot;Rehabilitación oral&quot;,
+      &quot;Descripcion&quot;: &quot;Recuperación de la función y forma de las piezas dentales.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 5,
+      &quot;Nombre&quot;: &quot;Implantología&quot;,
+      &quot;Descripcion&quot;: &quot;Alternativas para reemplazar piezas dentales perdidas.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 6,
+      &quot;Nombre&quot;: &quot;Cirugía maxilofacial&quot;,
+      &quot;Descripcion&quot;: &quot;Evaluación y procedimientos quirúrgicos según el diagnóstico.&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;ServicioID&quot;: 7,
+      &quot;Nombre&quot;: &quot;Servicio b6cbc3bf19&quot;,
+      &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;ServicioID&quot;: 9,
+      &quot;Nombre&quot;: &quot;Servicio mwsqy7t3poll&quot;,
+      &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;ServicioID&quot;: 10,
+      &quot;Nombre&quot;: &quot;Servicio 060e454c9c&quot;,
+      &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+      &quot;Activo&quot;: 0
+    }
+  ]
+}</pre></div></div></article><article><h2>servicios: consultar ID</h2><p><code>GET /api/servicios/1</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ServicioID&quot;: 1,
+    &quot;Nombre&quot;: &quot;Estética dental&quot;,
+    &quot;Descripcion&quot;: &quot;Procedimientos orientados a mejorar la apariencia de la sonrisa.&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>servicios: ID inexistente</h2><p><code>GET /api/servicios/2147483647</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>agenda: listar</h2><p><code>GET /api/agenda</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;AgendaID&quot;: 1,
+      &quot;Inicio&quot;: &quot;2026-11-23 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 10:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 2,
+      &quot;Inicio&quot;: &quot;2026-11-23 10:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 11:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 3,
+      &quot;Inicio&quot;: &quot;2026-11-23 11:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 12:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 4,
+      &quot;Inicio&quot;: &quot;2026-11-23 15:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 16:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 5,
+      &quot;Inicio&quot;: &quot;2026-11-23 16:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 17:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 6,
+      &quot;Inicio&quot;: &quot;2026-11-23 17:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-23 18:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 7,
+      &quot;Inicio&quot;: &quot;2026-11-24 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-24 10:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 8,
+      &quot;Inicio&quot;: &quot;2026-11-24 10:00:00&quot;,
+      &quot;Fin&quot;: &quot;2026-11-24 11:00:00&quot;,
+      &quot;Habilitada&quot;: 1
+    },
+    {
+      &quot;AgendaID&quot;: 9,
+      &quot;Inicio&quot;: &quot;2031-12-06 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-12-06 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 11,
+      &quot;Inicio&quot;: &quot;2031-12-07 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-12-07 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 12,
+      &quot;Inicio&quot;: &quot;2031-12-15 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-12-15 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 13,
+      &quot;Inicio&quot;: &quot;2071-09-16 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2071-09-16 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 14,
+      &quot;Inicio&quot;: &quot;2071-09-15 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2071-09-15 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 15,
+      &quot;Inicio&quot;: &quot;2031-04-05 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-04-05 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 17,
+      &quot;Inicio&quot;: &quot;2031-04-06 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-04-06 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    },
+    {
+      &quot;AgendaID&quot;: 18,
+      &quot;Inicio&quot;: &quot;2031-04-14 09:00:00&quot;,
+      &quot;Fin&quot;: &quot;2031-04-14 10:00:00&quot;,
+      &quot;Habilitada&quot;: 0
+    }
+  ]
+}</pre></div></div></article><article><h2>agenda: consultar ID</h2><p><code>GET /api/agenda/1</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 1,
+    &quot;Inicio&quot;: &quot;2026-11-23 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2026-11-23 10:00:00&quot;,
+    &quot;Habilitada&quot;: 1
+  }
+}</pre></div></div></article><article><h2>agenda: ID inexistente</h2><p><code>GET /api/agenda/2147483647</code> · HTTP 404 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>medios-pago: listar</h2><p><code>GET /api/medios-pago</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;MedioPagoID&quot;: 1,
+      &quot;Nombre&quot;: &quot;Tarjeta de crédito o débito&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;MedioPagoID&quot;: 2,
+      &quot;Nombre&quot;: &quot;Billetera digital&quot;,
+      &quot;Activo&quot;: 1
+    },
+    {
+      &quot;MedioPagoID&quot;: 3,
+      &quot;Nombre&quot;: &quot;Medio editado b6cbc3bf19&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;MedioPagoID&quot;: 5,
+      &quot;Nombre&quot;: &quot;Medio editado mwsqy7t3poll&quot;,
+      &quot;Activo&quot;: 0
+    },
+    {
+      &quot;MedioPagoID&quot;: 6,
+      &quot;Nombre&quot;: &quot;Medio editado 060e454c9c&quot;,
+      &quot;Activo&quot;: 0
+    }
+  ]
+}</pre></div></div></article><article><h2>medios-pago: consultar ID</h2><p><code>GET /api/medios-pago/1</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;MedioPagoID&quot;: 1,
+    &quot;Nombre&quot;: &quot;Tarjeta de crédito o débito&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>medios-pago: ID inexistente</h2><p><code>GET /api/medios-pago/2147483647</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>reservas: listar</h2><p><code>GET /api/reservas</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;ReservaID&quot;: 1,
+      &quot;PacienteID&quot;: 1,
+      &quot;ServicioID&quot;: 1,
+      &quot;AgendaID&quot;: 1,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:03:23&quot;,
+      &quot;Estado&quot;: &quot;CONFIRMADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 2,
+      &quot;PacienteID&quot;: 2,
+      &quot;ServicioID&quot;: 2,
+      &quot;AgendaID&quot;: 2,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:03:23&quot;,
+      &quot;Estado&quot;: &quot;CONFIRMADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 3,
+      &quot;PacienteID&quot;: 3,
+      &quot;ServicioID&quot;: 3,
+      &quot;AgendaID&quot;: 3,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:03:24&quot;,
+      &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 4,
+      &quot;PacienteID&quot;: 4,
+      &quot;ServicioID&quot;: 4,
+      &quot;AgendaID&quot;: 4,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:03:24&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 5,
+      &quot;PacienteID&quot;: 6,
+      &quot;ServicioID&quot;: 7,
+      &quot;AgendaID&quot;: 11,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:06:17&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 6,
+      &quot;PacienteID&quot;: 1,
+      &quot;ServicioID&quot;: 1,
+      &quot;AgendaID&quot;: 12,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:06:18&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 7,
+      &quot;PacienteID&quot;: 9,
+      &quot;ServicioID&quot;: 9,
+      &quot;AgendaID&quot;: 14,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:09:26&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 8,
+      &quot;PacienteID&quot;: 10,
+      &quot;ServicioID&quot;: 10,
+      &quot;AgendaID&quot;: 17,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:10:58&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    },
+    {
+      &quot;ReservaID&quot;: 9,
+      &quot;PacienteID&quot;: 1,
+      &quot;ServicioID&quot;: 1,
+      &quot;AgendaID&quot;: 18,
+      &quot;FechaRegistro&quot;: &quot;2026-11-22 23:11:00&quot;,
+      &quot;Estado&quot;: &quot;CANCELADA&quot;,
+      &quot;ImporteReserva&quot;: &quot;50.00&quot;
+    }
+  ]
+}</pre></div></div></article><article><h2>reservas: consultar ID</h2><p><code>GET /api/reservas/1</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 1,
+    &quot;PacienteID&quot;: 1,
+    &quot;ServicioID&quot;: 1,
+    &quot;AgendaID&quot;: 1,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:03:23&quot;,
+    &quot;Estado&quot;: &quot;CONFIRMADA&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: ID inexistente</h2><p><code>GET /api/reservas/2147483647</code> · HTTP 404 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>pagos: listar</h2><p><code>GET /api/pagos</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registros obtenidos.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;PagoID&quot;: 1,
+      &quot;ReservaID&quot;: 1,
+      &quot;MedioPagoID&quot;: 1,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:03:24&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;PRUEBA-TARJETA-001&quot;,
+      &quot;Anulado&quot;: 0,
+      &quot;FechaAnulacion&quot;: null
+    },
+    {
+      &quot;PagoID&quot;: 2,
+      &quot;ReservaID&quot;: 2,
+      &quot;MedioPagoID&quot;: 2,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:03:24&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;PRUEBA-BILLETERA-002&quot;,
+      &quot;Anulado&quot;: 0,
+      &quot;FechaAnulacion&quot;: null
+    },
+    {
+      &quot;PagoID&quot;: 3,
+      &quot;ReservaID&quot;: 5,
+      &quot;MedioPagoID&quot;: 3,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:06:18&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;EDIT-b6cbc3bf19&quot;,
+      &quot;Anulado&quot;: 1,
+      &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:06:18&quot;
+    },
+    {
+      &quot;PagoID&quot;: 5,
+      &quot;ReservaID&quot;: 5,
+      &quot;MedioPagoID&quot;: 3,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:06:18&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;NUEVO-b6cbc3bf19&quot;,
+      &quot;Anulado&quot;: 1,
+      &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:06:18&quot;
+    },
+    {
+      &quot;PagoID&quot;: 6,
+      &quot;ReservaID&quot;: 7,
+      &quot;MedioPagoID&quot;: 5,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:09:26&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;EDIT-mwsqy7t3poll&quot;,
+      &quot;Anulado&quot;: 1,
+      &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:09:27&quot;
+    },
+    {
+      &quot;PagoID&quot;: 7,
+      &quot;ReservaID&quot;: 8,
+      &quot;MedioPagoID&quot;: 6,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:10:59&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;EDIT-060e454c9c&quot;,
+      &quot;Anulado&quot;: 1,
+      &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:10:59&quot;
+    },
+    {
+      &quot;PagoID&quot;: 9,
+      &quot;ReservaID&quot;: 8,
+      &quot;MedioPagoID&quot;: 6,
+      &quot;FechaPago&quot;: &quot;2026-11-22 23:10:59&quot;,
+      &quot;Importe&quot;: &quot;50.00&quot;,
+      &quot;Referencia&quot;: &quot;NUEVO-060e454c9c&quot;,
+      &quot;Anulado&quot;: 1,
+      &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:10:59&quot;
+    }
+  ]
+}</pre></div></div></article><article><h2>pagos: consultar ID</h2><p><code>GET /api/pagos/1</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 1,
+    &quot;ReservaID&quot;: 1,
+    &quot;MedioPagoID&quot;: 1,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:03:24&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;PRUEBA-TARJETA-001&quot;,
+    &quot;Anulado&quot;: 0,
+    &quot;FechaAnulacion&quot;: null
+  }
+}</pre></div></div></article><article><h2>pagos: ID inexistente</h2><p><code>GET /api/pagos/2147483647</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>pacientes: crear</h2><p><code>POST /api/pacientes</code> · HTTP 201 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Prueba c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 13,
+    &quot;NombreCompleto&quot;: &quot;Paciente Prueba c6d57bce4f&quot;,
+    &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>pacientes: actualizar</h2><p><code>PUT /api/pacientes/13</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+  &quot;Activo&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 13,
+    &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+    &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>pacientes: correo duplicado</h2><p><code>POST /api/pacientes</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Prueba c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ya existe un registro con ese valor único.&quot;
+}</pre></div></div></article><article><h2>pacientes: correo inválido</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Prueba c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;invalido&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Correo no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>pacientes: nombre largo</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo NombreCompleto no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>pacientes: longitud Unicode SQL</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo NombreCompleto no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>pacientes: falta obligatorio</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Correo&quot;: &quot;otro@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo NombreCompleto es obligatorio.&quot;
+}</pre></div></div></article><article><h2>pacientes: tipo booleano</h2><p><code>PUT /api/pacientes/13</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+  &quot;Activo&quot;: &quot;true&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Activo no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>pacientes: identidad no editable</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Prueba c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+  &quot;PacienteID&quot;: 99
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La solicitud contiene campos desconocidos o no editables.&quot;
+}</pre></div></div></article><article><h2>pacientes: PUT inexistente</h2><p><code>PUT /api/pacientes/2147483647</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+  &quot;Activo&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>pacientes: DELETE inexistente</h2><p><code>DELETE /api/pacientes/2147483647</code> · HTTP 404 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Registro no encontrado.&quot;
+}</pre></div></div></article><article><h2>servicios: crear</h2><p><code>POST /api/servicios</code> · HTTP 201 · 32.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+  &quot;Descripcion&quot;: &quot;Evaluación ficticia con acentos.&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;ServicioID&quot;: 12,
+    &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+    &quot;Descripcion&quot;: &quot;Evaluación ficticia con acentos.&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>servicios: actualizar</h2><p><code>PUT /api/servicios/12</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+  &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+  &quot;Activo&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;ServicioID&quot;: 12,
+    &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+    &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>servicios: nombre duplicado</h2><p><code>POST /api/servicios</code> · HTTP 409 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+  &quot;Descripcion&quot;: &quot;Evaluación ficticia con acentos.&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ya existe un registro con ese valor único.&quot;
+}</pre></div></div></article><article><h2>servicios: descripción vacía</h2><p><code>POST /api/servicios</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+  &quot;Descripcion&quot;: &quot; &quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Descripcion no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>medios-pago: crear</h2><p><code>POST /api/medios-pago</code> · HTTP 201 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Medio prueba c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;MedioPagoID&quot;: 8,
+    &quot;Nombre&quot;: &quot;Medio prueba c6d57bce4f&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>medios-pago: actualizar</h2><p><code>PUT /api/medios-pago/8</code> · HTTP 200 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Medio editado c6d57bce4f&quot;,
+  &quot;Activo&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;MedioPagoID&quot;: 8,
+    &quot;Nombre&quot;: &quot;Medio editado c6d57bce4f&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>medios-pago: duplicado</h2><p><code>POST /api/medios-pago</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Nombre&quot;: &quot;Medio editado c6d57bce4f&quot;,
+  &quot;Activo&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ya existe un registro con ese valor único.&quot;
+}</pre></div></div></article><article><h2>agenda: crear</h2><p><code>POST /api/agenda</code> · HTTP 201 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-03T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 19,
+    &quot;Inicio&quot;: &quot;2043-03-03 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-03 10:00:00&quot;,
+    &quot;Habilitada&quot;: 1
+  }
+}</pre></div></div></article><article><h2>agenda: actualizar</h2><p><code>PUT /api/agenda/19</code> · HTTP 200 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-04T09:00:00&quot;,
+  &quot;Habilitada&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 19,
+    &quot;Inicio&quot;: &quot;2043-03-04 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-04 10:00:00&quot;,
+    &quot;Habilitada&quot;: 1
+  }
+}</pre></div></div></article><article><h2>agenda: inicio duplicado</h2><p><code>POST /api/agenda</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-04T09:00:00&quot;,
+  &quot;Habilitada&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ya existe un registro con ese valor único.&quot;
+}</pre></div></div></article><article><h2>agenda: fecha pasada</h2><p><code>POST /api/agenda</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2000-01-01T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El inicio de agenda debe estar en el futuro.&quot;
+}</pre></div></div></article><article><h2>agenda: fecha inexistente</h2><p><code>POST /api/agenda</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2027-02-30T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Inicio no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>agenda: año fuera de SQL Server</h2><p><code>POST /api/agenda</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;0000-01-01T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Inicio no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>agenda: Fin fuera del rango SQL</h2><p><code>POST /api/agenda</code> · HTTP 400 · 32.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;9999-12-31T23:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Inicio no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>agenda: minuto no exacto</h2><p><code>POST /api/agenda</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2027-03-01T09:15:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo Inicio no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>agenda: Fin calculado</h2><p><code>POST /api/agenda</code> · HTTP 400 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-08T09:00:00&quot;,
+  &quot;Fin&quot;: &quot;2043-03-09T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La solicitud contiene campos desconocidos o no editables.&quot;
+}</pre></div></div></article><article><h2>agenda: bloque alternativo</h2><p><code>POST /api/agenda</code> · HTTP 201 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-05T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 21,
+    &quot;Inicio&quot;: &quot;2043-03-05 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-05 10:00:00&quot;,
+    &quot;Habilitada&quot;: 1
+  }
+}</pre></div></div></article><article><h2>reservas: crear</h2><p><code>POST /api/reservas</code> · HTTP 201 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 19,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: doble reserva</h2><p><code>POST /api/reservas</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El bloque ya tiene una reserva vigente.&quot;
+}</pre></div></div></article><article><h2>reservas: paciente inexistente</h2><p><code>POST /api/reservas</code> · HTTP 409 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 2147483647,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El paciente no existe o está inactivo.&quot;
+}</pre></div></div></article><article><h2>reservas: servicio inexistente</h2><p><code>POST /api/reservas</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 2147483647,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El servicio no existe o está inactivo.&quot;
+}</pre></div></div></article><article><h2>reservas: agenda inexistente</h2><p><code>POST /api/reservas</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 2147483647,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El bloque no existe o está deshabilitado.&quot;
+}</pre></div></div></article><article><h2>reservas: importe negativo</h2><p><code>POST /api/reservas</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;-1.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo ImporteReserva no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>reservas: importe numérico no contractual</h2><p><code>POST /api/reservas</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: 50.0
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo ImporteReserva no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>reservas: identidad como texto</h2><p><code>POST /api/reservas</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: &quot;13&quot;,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El campo PacienteID no cumple el tipo, formato o longitud permitidos.&quot;
+}</pre></div></div></article><article><h2>reservas: Estado no editable</h2><p><code>PUT /api/reservas/10</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;,
+  &quot;Estado&quot;: &quot;CONFIRMADA&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La solicitud contiene campos desconocidos o no editables.&quot;
+}</pre></div></div></article><article><h2>agenda: no mover ocupada</h2><p><code>PUT /api/agenda/19</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-06T09:00:00&quot;,
+  &quot;Habilitada&quot;: true
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La agenda tiene una reserva vigente y no puede modificarse.&quot;
+}</pre></div></div></article><article><h2>agenda: no deshabilitar ocupada</h2><p><code>DELETE /api/agenda/19</code> · HTTP 409 · 32.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La agenda tiene una reserva vigente y no puede modificarse.&quot;
+}</pre></div></div></article><article><h2>pacientes: no desactivar con reserva</h2><p><code>DELETE /api/pacientes/13</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El registro tiene operaciones vigentes y no puede darse de baja.&quot;
+}</pre></div></div></article><article><h2>pacientes: PUT no omite restricción de baja</h2><p><code>PUT /api/pacientes/13</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+  &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+  &quot;Activo&quot;: false
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El registro tiene operaciones vigentes y no puede darse de baja.&quot;
+}</pre></div></div></article><article><h2>servicios: no desactivar con reserva</h2><p><code>DELETE /api/servicios/12</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El registro tiene operaciones vigentes y no puede darse de baja.&quot;
+}</pre></div></div></article><article><h2>reservas: actualizar y reprogramar</h2><p><code>PUT /api/reservas/10</code> · HTTP 200 · 62.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 21,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: verificar agenda</h2><p><code>GET /api/reservas/10</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>agenda: DELETE bloque liberado</h2><p><code>DELETE /api/agenda/19</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 19,
+    &quot;Inicio&quot;: &quot;2043-03-04 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-04 10:00:00&quot;,
+    &quot;Habilitada&quot;: 0
+  }
+}</pre></div></div></article><article><h2>agenda: repetir DELETE</h2><p><code>DELETE /api/agenda/19</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El bloque ya está deshabilitado.&quot;
+}</pre></div></div></article><article><h2>reservas: agenda deshabilitada</h2><p><code>POST /api/reservas</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 19,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El bloque no existe o está deshabilitado.&quot;
+}</pre></div></div></article><article><h2>pagos: importe distinto</h2><p><code>POST /api/pagos</code> · HTTP 409 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;ReservaID&quot;: 10,
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Importe&quot;: &quot;49.99&quot;,
+  &quot;Referencia&quot;: &quot;PRUEBA-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El pago debe coincidir con el importe de la reserva.&quot;
+}</pre></div></div></article><article><h2>reservas: tras pago inválido</h2><p><code>GET /api/reservas/10</code> · HTTP 200 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>pagos: crear</h2><p><code>POST /api/pagos</code> · HTTP 201 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;ReservaID&quot;: 10,
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Importe&quot;: &quot;50.00&quot;,
+  &quot;Referencia&quot;: &quot;PRUEBA-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 10,
+    &quot;ReservaID&quot;: 10,
+    &quot;MedioPagoID&quot;: 8,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;PRUEBA-c6d57bce4f&quot;,
+    &quot;Anulado&quot;: 0,
+    &quot;FechaAnulacion&quot;: null
+  }
+}</pre></div></div></article><article><h2>reservas: tras pago correcto</h2><p><code>GET /api/reservas/10</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;CONFIRMADA&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>pagos: segundo pago vigente</h2><p><code>POST /api/pagos</code> · HTTP 409 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;ReservaID&quot;: 10,
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Importe&quot;: &quot;50.00&quot;,
+  &quot;Referencia&quot;: &quot;OTRO-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Solo puede pagarse una reserva pendiente.&quot;
+}</pre></div></div></article><article><h2>reservas: no editar confirmada</h2><p><code>PUT /api/reservas/10</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 21,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Solo puede modificarse una reserva pendiente sin pago vigente.&quot;
+}</pre></div></div></article><article><h2>reservas: no cancelar pagada</h2><p><code>DELETE /api/reservas/10</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Solo puede cancelarse una reserva pendiente.&quot;
+}</pre></div></div></article><article><h2>medios-pago: no desactivar con pago</h2><p><code>DELETE /api/medios-pago/8</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El registro tiene operaciones vigentes y no puede darse de baja.&quot;
+}</pre></div></div></article><article><h2>pagos: no alterar importe</h2><p><code>PUT /api/pagos/10</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;,
+  &quot;Importe&quot;: &quot;60.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La solicitud contiene campos desconocidos o no editables.&quot;
+}</pre></div></div></article><article><h2>pagos: actualizar referencia y medio</h2><p><code>PUT /api/pagos/10</code> · HTTP 200 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro actualizado.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 10,
+    &quot;ReservaID&quot;: 10,
+    &quot;MedioPagoID&quot;: 8,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;,
+    &quot;Anulado&quot;: 0,
+    &quot;FechaAnulacion&quot;: null
+  }
+}</pre></div></div></article><article><h2>pagos: medio inexistente</h2><p><code>PUT /api/pagos/10</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;MedioPagoID&quot;: 255,
+  &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El medio de pago no existe o está inactivo.&quot;
+}</pre></div></div></article><article><h2>pagos: DELETE anula y conserva</h2><p><code>DELETE /api/pagos/10</code> · HTTP 200 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 10,
+    &quot;ReservaID&quot;: 10,
+    &quot;MedioPagoID&quot;: 8,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;,
+    &quot;Anulado&quot;: 1,
+    &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:17:26&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: tras anulación</h2><p><code>GET /api/reservas/10</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>pagos: repetir DELETE</h2><p><code>DELETE /api/pagos/10</code> · HTTP 409 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El pago ya está anulado o su reserva no está confirmada.&quot;
+}</pre></div></div></article><article><h2>pagos: no editar anulado</h2><p><code>PUT /api/pagos/10</code> · HTTP 409 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Referencia&quot;: &quot;EDIT2-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El pago ya está anulado o su reserva no está confirmada.&quot;
+}</pre></div></div></article><article><h2>pagos: referencia histórica única</h2><p><code>POST /api/pagos</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;ReservaID&quot;: 10,
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Importe&quot;: &quot;50.00&quot;,
+  &quot;Referencia&quot;: &quot;EDIT-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ya existe un registro con ese valor único.&quot;
+}</pre></div></div></article><article><h2>reservas: tras referencia duplicada</h2><p><code>GET /api/reservas/10</code> · HTTP 200 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;PENDIENTE&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>pagos: registrar reemplazo tras anulación</h2><p><code>POST /api/pagos</code> · HTTP 201 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;ReservaID&quot;: 10,
+  &quot;MedioPagoID&quot;: 8,
+  &quot;Importe&quot;: &quot;50.00&quot;,
+  &quot;Referencia&quot;: &quot;NUEVO-c6d57bce4f&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 12,
+    &quot;ReservaID&quot;: 10,
+    &quot;MedioPagoID&quot;: 8,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;NUEVO-c6d57bce4f&quot;,
+    &quot;Anulado&quot;: 0,
+    &quot;FechaAnulacion&quot;: null
+  }
+}</pre></div></div></article><article><h2>pagos: anular reemplazo</h2><p><code>DELETE /api/pagos/12</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;PagoID&quot;: 12,
+    &quot;ReservaID&quot;: 10,
+    &quot;MedioPagoID&quot;: 8,
+    &quot;FechaPago&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Importe&quot;: &quot;50.00&quot;,
+    &quot;Referencia&quot;: &quot;NUEVO-c6d57bce4f&quot;,
+    &quot;Anulado&quot;: 1,
+    &quot;FechaAnulacion&quot;: &quot;2026-11-22 23:17:26&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: DELETE cancela pendiente</h2><p><code>DELETE /api/reservas/10</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 10,
+    &quot;PacienteID&quot;: 13,
+    &quot;ServicioID&quot;: 12,
+    &quot;AgendaID&quot;: 21,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:25&quot;,
+    &quot;Estado&quot;: &quot;CANCELADA&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>reservas: repetir DELETE</h2><p><code>DELETE /api/reservas/10</code> · HTTP 409 · 32.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Solo puede cancelarse una reserva pendiente.&quot;
+}</pre></div></div></article><article><h2>reservas: no editar cancelada</h2><p><code>PUT /api/reservas/10</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 21,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Solo puede modificarse una reserva pendiente sin pago vigente.&quot;
+}</pre></div></div></article><article><h2>pacientes: DELETE baja lógica</h2><p><code>DELETE /api/pacientes/13</code> · HTTP 200 · 47.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 13,
+    &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+    &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 0
+  }
+}</pre></div></div></article><article><h2>pacientes: consultar baja</h2><p><code>GET /api/pacientes/13</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro obtenido.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 13,
+    &quot;NombreCompleto&quot;: &quot;Paciente Editado c6d57bce4f&quot;,
+    &quot;Correo&quot;: &quot;c6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 0
+  }
+}</pre></div></div></article><article><h2>pacientes: repetir DELETE</h2><p><code>DELETE /api/pacientes/13</code> · HTTP 409 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El registro ya está inactivo.&quot;
+}</pre></div></div></article><article><h2>reservas: paciente inactivo</h2><p><code>POST /api/reservas</code> · HTTP 409 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;PacienteID&quot;: 13,
+  &quot;ServicioID&quot;: 12,
+  &quot;AgendaID&quot;: 21,
+  &quot;ImporteReserva&quot;: &quot;50.00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El paciente no existe o está inactivo.&quot;
+}</pre></div></div></article><article><h2>servicios: DELETE baja lógica</h2><p><code>DELETE /api/servicios/12</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;ServicioID&quot;: 12,
+    &quot;Nombre&quot;: &quot;Servicio c6d57bce4f&quot;,
+    &quot;Descripcion&quot;: &quot;Descripción actualizada.&quot;,
+    &quot;Activo&quot;: 0
+  }
+}</pre></div></div></article><article><h2>medios-pago: DELETE baja lógica</h2><p><code>DELETE /api/medios-pago/8</code> · HTTP 200 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;MedioPagoID&quot;: 8,
+    &quot;Nombre&quot;: &quot;Medio editado c6d57bce4f&quot;,
+    &quot;Activo&quot;: 0
+  }
+}</pre></div></div></article><article><h2>agenda: DELETE después de cancelación</h2><p><code>DELETE /api/agenda/21</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 21,
+    &quot;Inicio&quot;: &quot;2043-03-05 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-05 10:00:00&quot;,
+    &quot;Habilitada&quot;: 0
+  }
+}</pre></div></div></article><article><h2>ID inválido 0</h2><p><code>GET /api/pacientes/0</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El identificador debe ser un entero positivo válido.&quot;
+}</pre></div></div></article><article><h2>ID inválido -1</h2><p><code>GET /api/pacientes/-1</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El identificador debe ser un entero positivo válido.&quot;
+}</pre></div></div></article><article><h2>ID inválido abc</h2><p><code>GET /api/pacientes/abc</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El identificador debe ser un entero positivo válido.&quot;
+}</pre></div></div></article><article><h2>ID inválido 2147483648</h2><p><code>GET /api/pacientes/2147483648</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El identificador debe ser un entero positivo válido.&quot;
+}</pre></div></div></article><article><h2>ID inválido 1%27%20OR%201=1</h2><p><code>GET /api/pacientes/1%27%20OR%201=1</code> · HTTP 400 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El identificador debe ser un entero positivo válido.&quot;
+}</pre></div></div></article><article><h2>JSON roto</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>&quot;{&quot;</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El cuerpo contiene JSON inválido.&quot;
+}</pre></div></div></article><article><h2>JSON array</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 32.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>&quot;[]&quot;</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El cuerpo debe ser un objeto JSON.&quot;
+}</pre></div></div></article><article><h2>JSON null</h2><p><code>POST /api/pacientes</code> · HTTP 400 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>&quot;null&quot;</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;El cuerpo debe ser un objeto JSON.&quot;
+}</pre></div></div></article><article><h2>Tipo de contenido incorrecto</h2><p><code>POST /api/pacientes</code> · HTTP 415 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>&quot;{}&quot;</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Envíe Content-Type: application/json.&quot;
+}</pre></div></div></article><article><h2>Tamaño excesivo</h2><p><code>POST /api/pacientes</code> · HTTP 413 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>&quot;{\&quot;x\&quot;:\&quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\&quot;}&quot;</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;La solicitud supera el tamaño permitido.&quot;
+}</pre></div></div></article><article><h2>Método no permitido</h2><p><code>PATCH /api/pacientes/1</code> · HTTP 405 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Método HTTP no permitido para esta ruta.&quot;
+}</pre></div></div></article><article><h2>Ruta inexistente</h2><p><code>GET /api/no-existe</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ruta no encontrada.&quot;
+}</pre></div></div></article><article><h2>Entorno no expuesto</h2><p><code>GET /.env</code> · HTTP 404 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ruta no encontrada.&quot;
+}</pre></div></div></article><article><h2>Código no expuesto</h2><p><code>GET /config/Database.php</code> · HTTP 404 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Ruta no encontrada.&quot;
+}</pre></div></div></article><article><h2>Texto SQL se trata como dato</h2><p><code>POST /api/pacientes</code> · HTTP 201 · 15.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;NombreCompleto&quot;: &quot;SQL de prueba &#x27;; DROP TABLE Paciente;--&quot;,
+  &quot;Correo&quot;: &quot;injc6d57bce4f@example.com&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 15,
+    &quot;NombreCompleto&quot;: &quot;SQL de prueba &#x27;; DROP TABLE Paciente;--&quot;,
+    &quot;Correo&quot;: &quot;injc6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 1
+  }
+}</pre></div></div></article><article><h2>Eliminar paciente de prueba de inyección</h2><p><code>DELETE /api/pacientes/15</code> · HTTP 200 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;PacienteID&quot;: 15,
+    &quot;NombreCompleto&quot;: &quot;SQL de prueba &#x27;; DROP TABLE Paciente;--&quot;,
+    &quot;Correo&quot;: &quot;injc6d57bce4f@example.com&quot;,
+    &quot;Activo&quot;: 0
+  }
+}</pre></div></div></article><article><h2>Concurrencia: preparar agenda</h2><p><code>POST /api/agenda</code> · HTTP 201 · 16.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>{
+  &quot;Inicio&quot;: &quot;2043-03-13T09:00:00&quot;
+}</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Registro creado.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 22,
+    &quot;Inicio&quot;: &quot;2043-03-13 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-13 10:00:00&quot;,
+    &quot;Habilitada&quot;: 1
+  }
+}</pre></div></div></article><article><h2>Concurrencia: cancelar reserva temporal</h2><p><code>DELETE /api/reservas/11</code> · HTTP 200 · 0.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;ReservaID&quot;: 11,
+    &quot;PacienteID&quot;: 1,
+    &quot;ServicioID&quot;: 1,
+    &quot;AgendaID&quot;: 22,
+    &quot;FechaRegistro&quot;: &quot;2026-11-22 23:17:26&quot;,
+    &quot;Estado&quot;: &quot;CANCELADA&quot;,
+    &quot;ImporteReserva&quot;: &quot;50.00&quot;
+  }
+}</pre></div></div></article><article><h2>Concurrencia: deshabilitar bloque temporal</h2><p><code>DELETE /api/agenda/22</code> · HTTP 200 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Baja, cancelación o anulación registrada.&quot;,
+  &quot;data&quot;: {
+    &quot;AgendaID&quot;: 22,
+    &quot;Inicio&quot;: &quot;2043-03-13 09:00:00&quot;,
+    &quot;Fin&quot;: &quot;2043-03-13 10:00:00&quot;,
+    &quot;Habilitada&quot;: 0
+  }
+}</pre></div></div></article><article><h2>Error interno: conexión inválida devuelve JSON 500</h2><p><code>GET /api/pacientes</code> · HTTP 500 · 31.0 ms</p><div class="cols"><div><p>Solicitud</p><pre>(sin cuerpo)</pre></div><div><p>Respuesta real</p><pre>{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;No fue posible completar la operación. Revise la configuración o contacte al administrador.&quot;
+}</pre></div></div></article></html>

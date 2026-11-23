@@ -1,0 +1,1063 @@
+{
+  "info": {
+    "name": "3657 Castillo Oviedo PA4 API MVC",
+    "description": "Seis módulos CRUD. Ejecutar la colección completa y en orden sobre una base de pruebas. Datos ficticios. DELETE conserva el historial. Arquitectura adaptada de leyngab-isil/3657_PAGINA_WEB.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8084"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (pm.info.requestName === \"Crear paciente\") {",
+          "  pm.collectionVariables.set(\"run_id\", Date.now().toString(36) + Math.random().toString(36).slice(2,6));",
+          "  const start = new Date(); start.setUTCDate(start.getUTCDate() + 16000 + Math.floor(Math.random() * 3000));",
+          "  for (let i=1; i<=3; i++) { const d=new Date(start); d.setUTCDate(d.getUTCDate()+i); pm.collectionVariables.set(\"fecha\"+i, d.toISOString().slice(0,10)+\"T09:00:00\"); }",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Pacientes",
+      "item": [
+        {
+          "name": "Crear paciente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pacientes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NombreCompleto\": \"Paciente {{run_id}}\",\n  \"Correo\": \"{{run_id}}@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"paciente_id\", pm.response.json().data.PacienteID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar pacientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pacientes"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar paciente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pacientes/{{paciente_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Actualizar paciente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pacientes/{{paciente_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NombreCompleto\": \"Paciente editado {{run_id}}\",\n  \"Correo\": \"{{run_id}}@example.com\",\n  \"Activo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rechazar correo inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pacientes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NombreCompleto\": \"Paciente {{run_id}}\",\n  \"Correo\": \"invalido\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(false));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 Servicios",
+      "item": [
+        {
+          "name": "Crear servicio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/servicios",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Nombre\": \"Servicio {{run_id}}\",\n  \"Descripcion\": \"Servicio ficticio para la prueba.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"servicio_id\", pm.response.json().data.ServicioID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar servicios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/servicios"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar servicio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/servicios/{{servicio_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Actualizar servicio",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/servicios/{{servicio_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Nombre\": \"Servicio {{run_id}}\",\n  \"Descripcion\": \"Descripción actualizada.\",\n  \"Activo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 Medios de pago",
+      "item": [
+        {
+          "name": "Crear medio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/medios-pago",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Nombre\": \"Medio {{run_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"medio_id\", pm.response.json().data.MedioPagoID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar medios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/medios-pago"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar medio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/medios-pago/{{medio_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Actualizar medio",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/medios-pago/{{medio_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Nombre\": \"Medio editado {{run_id}}\",\n  \"Activo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04 Agenda",
+      "item": [
+        {
+          "name": "Crear bloque",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/agenda",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Inicio\": \"{{fecha1}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"agenda_id\", pm.response.json().data.AgendaID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crear bloque alternativo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/agenda",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Inicio\": \"{{fecha2}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"agenda2_id\", pm.response.json().data.AgendaID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar agenda",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/agenda"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar bloque",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/agenda/{{agenda_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Actualizar bloque",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/agenda/{{agenda_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Inicio\": \"{{fecha3}}\",\n  \"Habilitada\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05 Reservas",
+      "item": [
+        {
+          "name": "Crear reserva",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/reservas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PacienteID\": {{paciente_id}},\n  \"ServicioID\": {{servicio_id}},\n  \"AgendaID\": {{agenda_id}},\n  \"ImporteReserva\": \"50.00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"reserva_id\", pm.response.json().data.ReservaID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar reservas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/reservas"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar reserva",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/reservas/{{reserva_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rechazar doble reserva",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/reservas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PacienteID\": {{paciente_id}},\n  \"ServicioID\": {{servicio_id}},\n  \"AgendaID\": {{agenda_id}},\n  \"ImporteReserva\": \"50.00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(false));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reprogramar reserva",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/reservas/{{reserva_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PacienteID\": {{paciente_id}},\n  \"ServicioID\": {{servicio_id}},\n  \"AgendaID\": {{agenda2_id}},\n  \"ImporteReserva\": \"50.00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "06 Pagos",
+      "item": [
+        {
+          "name": "Rechazar importe distinto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pagos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ReservaID\": {{reserva_id}},\n  \"MedioPagoID\": {{medio_id}},\n  \"Importe\": \"49.00\",\n  \"Referencia\": \"REF-{{run_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(false));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Registrar pago",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pagos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ReservaID\": {{reserva_id}},\n  \"MedioPagoID\": {{medio_id}},\n  \"Importe\": \"50.00\",\n  \"Referencia\": \"REF-{{run_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "if (pm.response.code === 201) pm.collectionVariables.set(\"pago_id\", pm.response.json().data.PagoID);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar pagos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pagos"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consultar pago",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pagos/{{pago_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Corregir pago",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/pagos/{{pago_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"MedioPagoID\": {{medio_id}},\n  \"Referencia\": \"EDIT-{{run_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Anular pago",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/pagos/{{pago_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "pm.test(\"Conserva el pago anulado\", () => pm.expect(Number(pm.response.json().data.Anulado)).to.eql(1));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Comprobar reserva pendiente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/reservas/{{reserva_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));",
+                  "pm.test(\"Reserva pendiente\", () => pm.expect(pm.response.json().data.Estado).to.eql(\"PENDIENTE\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "07 Cancelación y bajas",
+      "item": [
+        {
+          "name": "Cancelar reserva",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/reservas/{{reserva_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Deshabilitar primer bloque",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/agenda/{{agenda_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Deshabilitar segundo bloque",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/agenda/{{agenda2_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dar de baja paciente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/pacientes/{{paciente_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dar de baja servicio",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/servicios/{{servicio_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dar de baja medio",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/api/medios-pago/{{medio_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "08 Errores HTTP",
+      "item": [
+        {
+          "name": "Paciente inexistente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pacientes/2147483647"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(false));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Identificador inválido",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/pacientes/abc"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Respuesta uniforme\", () => pm.expect(pm.response.json().success).to.eql(false));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
