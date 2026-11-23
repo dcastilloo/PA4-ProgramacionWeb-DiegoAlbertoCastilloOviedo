@@ -1,0 +1,6 @@
+/vendor/
+/.env
+/.runtime/
+/.work/
+/logs/*.log
+*.zip
