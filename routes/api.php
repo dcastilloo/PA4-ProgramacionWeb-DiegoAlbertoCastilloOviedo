@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// Cada módulo declara las cinco operaciones de la consigna.
+// Rutas de listado, consulta, creación, actualización y baja por módulo.
 $controller = new App\Controllers\PacienteController($db);
 $router->add('GET', '/api/pacientes', [$controller, 'index']);
 $router->add('GET', '/api/pacientes/{id}', [$controller, 'show']);

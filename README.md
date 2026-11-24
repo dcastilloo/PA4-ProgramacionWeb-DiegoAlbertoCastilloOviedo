@@ -4,10 +4,8 @@ Proceso de Aprendizaje 4 · Programación Web Básica · NRC 3657 · Periodo 202
 Diego Alberto Castillo Oviedo. Docente: LUIGGUI ENRIQUE YNGA BECERRA.
 
 [Repositorio de entrega](https://github.com/dcastilloo/PA4-ProgramacionWeb-DiegoAlbertoCastilloOviedo)
-· [Informe técnico](informe/3657_CastilloOviedo_DiegoAlberto_API_MVC.docx)
-· [Evidencias de ejecución](evidencias/index.html).
 
-Seis módulos REST sobre SQL Server: pacientes, servicios, agenda, reservas,
+API REST en PHP para seis módulos del consultorio: pacientes, servicios, agenda, reservas,
 medios de pago y pagos. El proyecto continúa el modelo del PA3 y adapta la
 arquitectura PHP del [proyecto base del docente](https://github.com/leyngab-isil/3657_PAGINA_WEB/tree/8255ded416ceea343bee9403f39f11fa7e8a4ac5).
 
@@ -42,9 +40,8 @@ sqlcmd -S localhost -E -b -f 65001 -i database/01_instalar.sql
 
 El SQL crea `PA4_3657_ConsultorioIris`, seis tablas, cinco FK, seis procedimientos,
 restricciones, índices y población ficticia. Si la base ya existe, omite su
-creación sin borrarla ni modificarla. Es una instalación completa basada en
-PA3, no una migración sobre la base histórica del PA3. Una base con el mismo
-nombre y esquema antiguo requiere revisión, no se actualiza automáticamente.
+creación sin borrarla ni modificarla. La instalación retoma el modelo del PA3 y utiliza una base independiente.
+Si ya existe una base con ese nombre y otro esquema, revisarla antes de continuar.
 
 Revisar `.env`: servidor, base y autenticación. Los campos de usuario y
 contraseña vacíos utilizan Windows con la identidad del proceso PHP. Para
@@ -74,9 +71,8 @@ php scripts/check-db.php
 composer run serve
 ```
 
-No sobrescribir un `.env` existente. El servidor PHP integrado se usa para la
-evaluación local. La entrega no incluye autenticación, despliegue público,
-pasarela de cobros, frontend integrado, exposición ni video.
+Conservar la configuración si ya existe un `.env`. El servidor PHP integrado
+permite ejecutar y probar la API en el equipo local.
 
 ## Rutas y cuerpos JSON
 
@@ -107,7 +103,7 @@ Ejemplo de reserva:
 ```
 
 La agenda semilla corresponde a mañana y pasado mañana al instalar. Revisar
-su disponibilidad antes de usar un ID: no se promete que AgendaID 5 siga libre.
+su disponibilidad antes de usar un ID, incluido el AgendaID 5 del ejemplo.
 Al vencer esos días, crear bloques futuros por API. No es necesario borrar
 la base ni alterar el reloj del equipo para regenerar datos.
 
@@ -147,8 +143,8 @@ Error: `{"success":false,"message":"..."}`.
 200 consulta/actualización/baja, 201 creación, 400 entrada inválida, 404 recurso
 o ruta inexistente, 405 método no permitido, 409 conflicto de unicidad/regla,
 413 tamaño superior a 64 KiB, 415 contenido distinto de JSON y 500 fallo interno
-sanitizado. Las FK de un cuerpo que no identifican una entidad válida para la
-operación se tratan como conflicto 409. No se devuelven trazas ni credenciales.
+con un mensaje genérico. Una clave foránea inválida en el cuerpo devuelve 409.
+Los errores internos no muestran trazas ni credenciales.
 
 ## Postman y pruebas automatizadas
 
@@ -167,7 +163,7 @@ Para reproducir esa base con Windows y sqlcmd:
 .\scripts\crear-base-pruebas.ps1
 ```
 
-En dos terminales distintas, desde esta carpeta, iniciar sendos procesos PHP:
+Abrir dos terminales en esta carpeta e iniciar un servidor PHP en cada una:
 
 ```powershell
 $env:DB_DATABASE='PA4_3657_ConsultorioIris_Pruebas'
@@ -181,34 +177,32 @@ python tests/integracion.py --base http://127.0.0.1:8085 --base2 http://127.0.0.
 npx --yes newman run postman/PA4.postman_collection.json --env-var base_url=http://127.0.0.1:8085
 ```
 
-La batería estándar tiene 142 comprobaciones. Para agregar dos comprobaciones
-del error 500, iniciar otro servidor aislado en 8087 con
-`DB_DATABASE=PA4_BaseInexistente_ValidarError` y pasar
-`--base-error http://127.0.0.1:8087` a Python. No crear esa base: su inexistencia
-es la condición que provoca el error controlado. Las evidencias entregadas
-registran 144/144 comprobaciones y 78/78 aserciones Newman correctas.
+La batería estándar realiza 142 comprobaciones. Para comprobar también el error
+500, iniciar un tercer servidor en el puerto 8087 con
+`DB_DATABASE=PA4_BaseInexistente_ValidarError` y agregar
+`--base-error http://127.0.0.1:8087` al comando de Python. Esa base debe permanecer
+inexistente para provocar el fallo de conexión esperado. Con esta opción se
+ejecutan 144 comprobaciones.
 
-`evidencias/resultados.json` conserva cada solicitud/respuesta y las invariantes;
-`newman.json` y `newman.txt` conservan la ejecución de la colección; `index.html`
-permite leer el informe y las capturas muestran su contenido real. Son capturas
-del informe de ejecución, no de la aplicación Postman. Las pruebas se ejecutaron
-contra SQL Server real y dos procesos PHP para la concurrencia. Los registros
-de prueba se cancelan/anulan/desactivan cuando corresponde y permanecen como
-historial; no se promete restaurar conteos ni identidades.
+Python guarda el resultado de cada ejecución en `evidencias/resultados.json`.
+La carpeta se genera al ejecutar las pruebas y está excluida de Git.
+Los informes y las capturas se presentan por separado en la entrega del PA4.
 
-## Estructura y autoría
+Las pruebas conservan los registros ficticios como historial y aplican la baja,
+cancelación o anulación según el caso. Los conteos y las identidades cambian
+con cada ejecución.
+
+## Organización del proyecto
 
 `app/Models/` realiza consultas y llamadas a procedimientos; `app/Controllers/`
 procesa entradas y respuestas; `routes/api.php` expone las rutas. `core/` reúne
 router, validación, petición, respuesta y errores; `config/` carga el entorno
 y crea PDO; `public/` es el punto de entrada. SQL y pruebas están separados.
 
-Se tomó como referencia la organización del repositorio docente y el patrón
-de respuesta uniforme y despacho de rutas, consultados en el commit indicado.
-La configuración por entorno, validación estricta, modelos del consultorio,
-reglas transaccionales adicionales, errores, instalación y pruebas corresponden
-a esta adaptación. Se reutiliza el SQL del PA3 del mismo estudiante. El informe
-explica en primera persona las decisiones y los resultados del proyecto.
+El proyecto adapta la estructura MVC del ejemplo del docente al consultorio y
+reutiliza el modelo SQL del PA3. Incluye las reglas de reservas y pagos, la
+validación de entradas y las pruebas para las seis tablas.
 
-El repositorio/ZIP excluye `.env`, `vendor/`, `.runtime/`, `.work/` y cachés.
-Se conserva `composer.lock`. Instalar las dependencias antes de ejecutar.
+El repositorio conserva el código, el SQL, la colección Postman y las pruebas.
+`.env`, `vendor/`, `.runtime/` y los resultados generados quedan fuera de Git.
+Instalar las dependencias antes de ejecutar el proyecto.

@@ -7,7 +7,7 @@ final class Database
 {
     public static function connect(): PDO
     {
-        // Los datos de conexión proceden del entorno, nunca del código fuente.
+        // Lee la conexión desde las variables de entorno.
         $server = Environment::get('DB_SERVER', 'localhost');
         $database = Environment::get('DB_DATABASE', 'PA4_3657_ConsultorioIris');
         foreach ([$server, $database] as $value) {

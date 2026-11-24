@@ -1,4 +1,4 @@
-"""Pruebas HTTP reales sobre una base EXCLUSIVA de pruebas; solo biblioteca estándar.
+"""Pruebas HTTP sobre una base de pruebas; utiliza la biblioteca estándar de Python.
 
 Ejecutar después de instalar database/01_instalar.sql con un nombre de base distinto
 y levantar dos procesos PHP que apunten a esa base (8085 y 8086 por defecto).

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Core;
 
-// Conserva el registro explícito y despacho por método/ruta de la referencia.
+// Busca la ruta que corresponde al método HTTP y la URL.
 final class Router
 {
     private array $routes = [];
