@@ -208,7 +208,7 @@ de respuesta uniforme y despacho de rutas, consultados en el commit indicado.
 La configuración por entorno, validación estricta, modelos del consultorio,
 reglas transaccionales adicionales, errores, instalación y pruebas corresponden
 a esta adaptación. Se reutiliza el SQL del PA3 del mismo estudiante. El informe
-documenta las diferencias y las fuentes con referencias APA.
+explica en primera persona las decisiones y los resultados del proyecto.
 
 El repositorio/ZIP excluye `.env`, `vendor/`, `.runtime/`, `.work/` y cachés.
 Se conserva `composer.lock`. Instalar las dependencias antes de ejecutar.
