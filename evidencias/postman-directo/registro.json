@@ -1,0 +1,94 @@
+{
+  "fecha": "2026-11-23",
+  "aplicacion": "Postman 12.38.0",
+  "base": "http://127.0.0.1:8092",
+  "base_datos": "PA4_3657_ConsultorioIris_Pruebas",
+  "nota": "Seis solicitudes ejecutadas directamente en la aplicación. Los códigos 400, 404 y 409 son resultados esperados. Las capturas originales no fueron editadas.",
+  "casos": [
+    {
+      "nombre": "01 Creación de paciente",
+      "metodo": "POST",
+      "ruta": "/api/pacientes",
+      "cuerpo": {
+        "NombreCompleto": "Paciente entrega PA4",
+        "Correo": "entrega20261123232355@example.com"
+      },
+      "esperado": 201,
+      "archivo": "01-creacion",
+      "verificado": 201,
+      "observacion": "Postman devuelve Registro creado y PacienteID 18.",
+      "titulo": "Creación de paciente",
+      "explicacion": "Envié POST /api/pacientes con nombre y correo válidos. La API respondió 201 Created y devolvió el nuevo PacienteID 18."
+    },
+    {
+      "nombre": "02 Actualización de paciente",
+      "metodo": "PUT",
+      "ruta": "/api/pacientes/17",
+      "cuerpo": {
+        "NombreCompleto": "Paciente actualizado en Postman",
+        "Correo": "preparacion20261123232355@example.com",
+        "Activo": true
+      },
+      "esperado": 200,
+      "archivo": "02-actualizacion",
+      "verificado": 200,
+      "observacion": "Postman muestra Registro actualizado y el nombre corregido.",
+      "titulo": "Actualización de paciente",
+      "explicacion": "Envié PUT /api/pacientes/17 con los campos completos. La API respondió 200 OK y devolvió el nombre actualizado."
+    },
+    {
+      "nombre": "03 Baja lógica de paciente",
+      "metodo": "DELETE",
+      "ruta": "/api/pacientes/17",
+      "cuerpo": null,
+      "esperado": 200,
+      "archivo": "03-baja",
+      "verificado": 200,
+      "observacion": "Postman muestra baja registrada y Activo igual a 0.",
+      "titulo": "Baja lógica de paciente",
+      "explicacion": "Envié DELETE /api/pacientes/17. La API respondió 200 OK y conservó el registro con Activo igual a 0."
+    },
+    {
+      "nombre": "04 Correo inválido",
+      "metodo": "POST",
+      "ruta": "/api/pacientes",
+      "cuerpo": {
+        "NombreCompleto": "Paciente de prueba",
+        "Correo": "invalido"
+      },
+      "esperado": 400,
+      "archivo": "04-correo-invalido",
+      "verificado": 400,
+      "observacion": "Postman muestra Bad Request y validación del campo Correo.",
+      "titulo": "Validación de correo inválido",
+      "explicacion": "Envié POST /api/pacientes con Correo igual a invalido. La API respondió 400 Bad Request y señaló el formato incorrecto del correo."
+    },
+    {
+      "nombre": "05 Paciente inexistente",
+      "metodo": "GET",
+      "ruta": "/api/pacientes/2147483647",
+      "cuerpo": null,
+      "esperado": 404,
+      "archivo": "05-no-encontrado",
+      "verificado": 404,
+      "observacion": "Postman muestra Not Found y Registro no encontrado.",
+      "titulo": "Consulta de paciente inexistente",
+      "explicacion": "Consulté GET /api/pacientes/2147483647. La API respondió 404 Not Found con el mensaje Registro no encontrado."
+    },
+    {
+      "nombre": "06 Correo duplicado",
+      "metodo": "POST",
+      "ruta": "/api/pacientes",
+      "cuerpo": {
+        "NombreCompleto": "Paciente de prueba",
+        "Correo": "ana.torres@example.com"
+      },
+      "esperado": 409,
+      "archivo": "06-correo-duplicado",
+      "verificado": 409,
+      "observacion": "Postman muestra Conflict por un correo que ya existe.",
+      "titulo": "Validación de correo duplicado",
+      "explicacion": "Intenté crear un paciente con ana.torres@example.com, un correo existente. La API respondió 409 Conflict e impidió duplicar el valor único."
+    }
+  ]
+}
