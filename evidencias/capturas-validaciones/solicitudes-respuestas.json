@@ -1,0 +1,146 @@
+{
+  "herramienta": "Postman Collection Runner mediante Newman",
+  "fecha": "2026-11-23",
+  "resumen": {
+    "solicitudes": 38,
+    "aserciones": 78,
+    "fallos": 0
+  },
+  "casos": [
+    {
+      "archivo": "01-creacion",
+      "titulo": "Creación correcta de un paciente",
+      "explicacion": "El servidor registra el paciente y devuelve HTTP 201 con su identificador.",
+      "fecha_lima": "2026-11-23T23:08:48-05:00",
+      "caso_coleccion": "Crear paciente",
+      "metodo": "POST",
+      "url": "http://127.0.0.1:8091/api/pacientes",
+      "solicitud": {
+        "NombreCompleto": "Paciente mwu6dawsl7fw",
+        "Correo": "mwu6dawsl7fw@example.com"
+      },
+      "codigo": 201,
+      "estado": "Created",
+      "respuesta": {
+        "success": true,
+        "message": "Registro creado.",
+        "data": {
+          "PacienteID": 16,
+          "NombreCompleto": "Paciente mwu6dawsl7fw",
+          "Correo": "mwu6dawsl7fw@example.com",
+          "Activo": 1
+        }
+      },
+      "duracion_ms": 244
+    },
+    {
+      "archivo": "02-actualizacion",
+      "titulo": "Actualización correcta de un paciente",
+      "explicacion": "La respuesta HTTP 200 muestra el nombre actualizado del registro.",
+      "fecha_lima": "2026-11-23T23:08:49-05:00",
+      "caso_coleccion": "Actualizar paciente",
+      "metodo": "PUT",
+      "url": "http://127.0.0.1:8091/api/pacientes/16",
+      "solicitud": {
+        "NombreCompleto": "Paciente editado mwu6dawsl7fw",
+        "Correo": "mwu6dawsl7fw@example.com",
+        "Activo": true
+      },
+      "codigo": 200,
+      "estado": "OK",
+      "respuesta": {
+        "success": true,
+        "message": "Registro actualizado.",
+        "data": {
+          "PacienteID": 16,
+          "NombreCompleto": "Paciente editado mwu6dawsl7fw",
+          "Correo": "mwu6dawsl7fw@example.com",
+          "Activo": 1
+        }
+      },
+      "duracion_ms": 38
+    },
+    {
+      "archivo": "03-baja",
+      "titulo": "Baja lógica de un paciente",
+      "explicacion": "DELETE devuelve HTTP 200 y conserva el registro con Activo igual a 0.",
+      "fecha_lima": "2026-11-23T23:08:52-05:00",
+      "caso_coleccion": "Dar de baja paciente",
+      "metodo": "DELETE",
+      "url": "http://127.0.0.1:8091/api/pacientes/16",
+      "solicitud": null,
+      "codigo": 200,
+      "estado": "OK",
+      "respuesta": {
+        "success": true,
+        "message": "Baja, cancelación o anulación registrada.",
+        "data": {
+          "PacienteID": 16,
+          "NombreCompleto": "Paciente editado mwu6dawsl7fw",
+          "Correo": "mwu6dawsl7fw@example.com",
+          "Activo": 0
+        }
+      },
+      "duracion_ms": 34
+    },
+    {
+      "archivo": "04-correo-invalido",
+      "titulo": "Validación del formato de correo",
+      "explicacion": "La solicitud contiene un correo inválido. El servidor devuelve HTTP 400 con un mensaje del campo Correo.",
+      "fecha_lima": "2026-11-23T23:08:49-05:00",
+      "caso_coleccion": "Rechazar correo inválido",
+      "metodo": "POST",
+      "url": "http://127.0.0.1:8091/api/pacientes",
+      "solicitud": {
+        "NombreCompleto": "Paciente mwu6dawsl7fw",
+        "Correo": "invalido"
+      },
+      "codigo": 400,
+      "estado": "Bad Request",
+      "respuesta": {
+        "success": false,
+        "message": "El campo Correo no cumple el tipo, formato o longitud permitidos."
+      },
+      "duracion_ms": 15
+    },
+    {
+      "archivo": "05-no-encontrado",
+      "titulo": "Consulta de un identificador inexistente",
+      "explicacion": "El servidor devuelve HTTP 404 y un mensaje comprensible cuando no encuentra el paciente.",
+      "fecha_lima": "2026-11-23T23:08:52-05:00",
+      "caso_coleccion": "Paciente inexistente",
+      "metodo": "GET",
+      "url": "http://127.0.0.1:8091/api/pacientes/2147483647",
+      "solicitud": null,
+      "codigo": 404,
+      "estado": "Not Found",
+      "respuesta": {
+        "success": false,
+        "message": "Registro no encontrado."
+      },
+      "duracion_ms": 18
+    },
+    {
+      "archivo": "06-doble-reserva",
+      "titulo": "Validación de disponibilidad del horario",
+      "explicacion": "El intento de crear otra reserva sobre el mismo bloque devuelve HTTP 409 y no duplica la reserva vigente.",
+      "fecha_lima": "2026-11-23T23:08:51-05:00",
+      "caso_coleccion": "Rechazar doble reserva",
+      "metodo": "POST",
+      "url": "http://127.0.0.1:8091/api/reservas",
+      "solicitud": {
+        "PacienteID": 16,
+        "ServicioID": 14,
+        "AgendaID": 23,
+        "ImporteReserva": "50.00"
+      },
+      "codigo": 409,
+      "estado": "Conflict",
+      "respuesta": {
+        "success": false,
+        "message": "El bloque ya tiene una reserva vigente."
+      },
+      "duracion_ms": 19
+    }
+  ]
+}
